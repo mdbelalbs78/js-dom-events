@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubble</title>
+    <style>
+        ul {
+            border: 2px solid tomato;
+        }
+
+        #itme-2 {
+            border: 2px solid rebeccapurple;
+        }
+
+        body {
+            border: 2px solid green;
+        }
+
+        section {
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <h1>Exploring Event Bubble</h1>
+    <section id="list-container">
+        <ul id="ul-clicked">
+            <li id="itme-1">Lorem, ipsum.</li>
+            <li id="itme-2">Accusamus, quaerat!</li>
+            <li id="itme-3">Nam, repellendus?</li>
+            <li id="itme-4">Tempore, odit.</li>
+            <li id="itme-5">Excepturi, hic!</li>
+            <li id="itme-6">Vero, cumque.</li>
+        </ul>
+    </section>
+    <script>
+        document.getElementById('itme-2').addEventListener('click', function (event) {
+            console.log('item-2 clicked');
+            event.stopImmediatePropagation();
+        });
+        document.getElementById('itme-2').addEventListener('click', function (event) {
+            console.log('item-2 clicked');
+          
+        });
+        document.getElementById('itme-2').addEventListener('click', function (event) {
+            console.log('item-2 clicked');
+            
+        });
+        document.getElementById('ul-clicked').addEventListener('click', function () {
+            console.log('ul clicked');
+        })
+        document.getElementById('list-container').addEventListener('click', function () {
+            console.log('section container clicked');
+        })
+        document.getElementById('body').addEventListener('click', function () {
+            console.log('body html clicked');
+        })
+    </script>
+</body>
+
+</html>
