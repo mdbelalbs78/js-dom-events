@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM Summary </title>
+</head>
+
+<body>
+    <h1>Final Dom Event Handlers</h1>
+    <h3 id="handle-status">Default Text</h3>
+    <h3 class="updateFiled">Input Text update</h3>
+    <input id="input-text" type="text">
+    <button id="input-update">update</button>
+    <br>
+    <h3 id="belal">Amar bari amlagachhi</h3>
+    <button onclick="handleOnclick()">Handle Event by add onclick function</button>
+    <button id="event-listener">handle event by addEventListener</button>
+
+    <script>
+        function handleOnclick() {
+            const handlerStaus = document.getElementById('handle-status')
+            handlerStaus.innerText = 'belal';
+        }
+        // option 2 most of the time use it
+        document.getElementById('event-listener').addEventListener('click', function () {
+            const handlerStaus = document.getElementById('belal');
+            handlerStaus.innerText = 'I wont ta a font end developer';
+        })
+
+        document.getElementById('input-update').addEventListener('click', function () {
+            // console.log('update button click');
+            const inputFiled = document.getElementById('input-text')
+            const inputText = inputFiled.value;
+            const update = document.getElementById('updateFiled');
+            update.innerText = inputText;
+        })
+    </script>
+</body>
+
+</html>

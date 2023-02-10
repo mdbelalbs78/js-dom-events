@@ -1,0 +1,45 @@
+ <!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>JS DOM Summary</title>
+ </head>
+
+ <body>
+     
+     <h3 id="handler-status">Default Text</h3>
+     <p id="input-text-disply">Defout input text</p>
+     <input id="input-filed" type="text">
+     <button id="btn-update">update</button>
+     <br>
+     <br>
+     <button onclick="handleOnclick()">handle Event add oncllick function</button>
+     <button id="event-listerner">handle event by addEventListener</button>
+
+     <script>
+         function handleOnclick() {
+             const handlerStaus = document.getElementById('handler-status');
+             handlerStaus.innerText = 'I love suraiya allah jeno amk suraiya valo vabe dey'
+         }
+         //  option 2
+         document.getElementById('event-listerner').addEventListener('click', function () {
+             const handlerStaus = document.getElementById('handler-status')
+             handlerStaus.innerText = 'I love bangladesh';
+         })
+
+         //  option 2: recap 
+         document.getElementById('btn-update').addEventListener('click', function () {
+             const inputFiled = document.getElementById('input-filed')
+             const inputText = inputFiled.value;
+
+             const p = document.getElementById('input-text-disply');
+             p.innerText = inputText;
+             inputFiled.value = '';
+         })
+     </script>
+ </body>
+
+ </html>
